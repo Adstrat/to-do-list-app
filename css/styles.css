@@ -11,8 +11,7 @@ width: 300px;
 margin: 0 auto;
 margin-top: 40px;
 background: white;
-border-radius: 10px;
-}
+border-radius: 10px;}
 
 form {
 display: inline-block;
@@ -40,7 +39,7 @@ ol {padding-left: 20px;}
 
 ol li {padding: 5px;color:#000;}
 
-ol li:nth-child(even){background: #fff8e7;}
+ol li:nth-child(even){background: #fff8e7}
 
 .strike{text-decoration: line-through;}
 
