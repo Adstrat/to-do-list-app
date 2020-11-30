@@ -2,7 +2,7 @@
 
 body {
 font: normal normal 13px/16px "Open Sans", sans-serif;
-background: #dfdfdf;
+background: #e6eff4;
 }
 
 .container{
@@ -11,7 +11,8 @@ width: 300px;
 margin: 0 auto;
 margin-top: 40px;
 background: white;
-border-radius: 5px;}
+border-radius: 10px;
+}
 
 form {
 display: inline-block;
@@ -23,9 +24,9 @@ padding: 4px 15px 4px 5px;
 
 #button{
 display: inline-block;
-background-color:#fc999b;
+background-color:#4262ba;
 color:#ffffff;
-border-radius: 5px;
+border-radius: 15px;
 text-align:center;
 margin-top:2px;
 padding: 5px 15px;
@@ -39,7 +40,7 @@ ol {padding-left: 20px;}
 
 ol li {padding: 5px;color:#000;}
 
-ol li:nth-child(even){background: #dfdfdf;}
+ol li:nth-child(even){background: #fff8e7;}
 
 .strike{text-decoration: line-through;}
 
