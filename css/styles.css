@@ -45,7 +45,6 @@ ol li:nth-child(even){background: #fff8e7}
 
 li:hover{
   cursor: pointer;
-  font-size: 110%;
  }
 
 .delete {
