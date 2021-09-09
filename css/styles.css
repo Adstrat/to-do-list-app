@@ -14,7 +14,7 @@ span {
   padding: 20px;
   width: 300px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 20px;
   background: white;
   border-radius: 10px;
 }
@@ -78,4 +78,14 @@ li > crossOutButton {
   float: right;
   color: #025f70;
   font-weight: 800;
+}
+
+/* -- Date and Time -- */
+
+.dateAndTime {
+  text-align: center;
+  background-color: #fff;
+  margin: 20px auto;
+  width: 250px;
+  padding: 5px;
 }
