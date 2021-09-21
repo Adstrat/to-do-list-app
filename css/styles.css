@@ -1,11 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic, 400);
-
 body {
-  font: normal normal 13px/16px "Open Sans", sans-serif;
-  background: #e6eff4;
+   background: #e6eff4;
 }
 
-h2,
+h1,
 span {
   color: #4262ba;
 }
@@ -19,6 +16,22 @@ span {
   border-radius: 10px;
 }
 
+.todo-title {
+  float: left;
+}
+
+.info-button {
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
 form {
   display: inline-block;
 }
@@ -29,6 +42,7 @@ input {
 
 ul {
   padding-left: 20px;
+  padding-top: 40px;
 }
 
 #button {
