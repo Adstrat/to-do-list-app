@@ -32,6 +32,10 @@ span {
   box-shadow: none;
 }
 
+#input {
+  width: 300px;
+}
+
 form {
   display: inline-block;
 }
@@ -79,7 +83,7 @@ ol li:nth-child(even) {
 
 #list li:hover {
   cursor: pointer;
-  font-size: 110%;
+  color: #025f70;
 }
 
 .delete {
