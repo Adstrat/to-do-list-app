@@ -7,13 +7,21 @@ span {
   color: #4262ba;
 }
 
-.container {
-  padding: 20px;
-  width: 500px;
-  margin: 0 auto;
-  margin-top: 20px;
-  background: white;
-  border-radius: 10px;
+/* -- Date and Time -- */
+
+.date-time {
+  text-align: center;
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 5px;
+}
+
+/* -- Todo -- */
+
+.todo-container {
+  margin: 20px auto;
+  padding: 20px 60px;
+  background: #fff;
 }
 
 .todo-title {
@@ -96,14 +104,4 @@ li > crossOutButton {
   float: right;
   color: #025f70;
   font-weight: 800;
-}
-
-/* -- Date and Time -- */
-
-.dateAndTime {
-  text-align: center;
-  background-color: #fff;
-  margin: 20px auto;
-  width: 250px;
-  padding: 5px;
 }
