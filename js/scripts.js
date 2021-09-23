@@ -5,12 +5,14 @@ function newItem() {
   // ADDING A NEW ITEM TO THE LIST OF ITEMS
   let li = $('<li></li>');
   let inputValue = $('#input').val();
+  let form = $('.todo-form')[0];
   li.append(inputValue);
 
   if (inputValue === '') {
     alert('You must write something!');
   } else {
     $('#list').append(li);
+    form.reset();
   }
 
   // CROSSING OUT AN ITEM FROM THE LIST OF ITEMS:
