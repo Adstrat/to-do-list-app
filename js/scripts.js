@@ -38,7 +38,7 @@ function newItem() {
 
 // -- DATE AND TIME --
 
-const dateAndTime = document.querySelector('.dateAndTime');
+const dateAndTime = document.querySelector('.date-time');
 
 const tick = () => {
 

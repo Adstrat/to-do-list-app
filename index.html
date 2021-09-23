@@ -7,86 +7,95 @@
     <script src="https://kit.fontawesome.com/a31e7cfbcc.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>Simple To Do List App</title>
+    <title>Multi App</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
     <!-- DATE AND TIME -->
-    <div class="dateAndTime"></div>
+    <div class="container">
+      <div class="date-time"></div>
+    </div>
+
 
     <!-- TODO LIST -->
     <div class="container">
+      <div class="todo-container">
+        <h1 class="todo-title">To-Do List</h1>
 
-      <h1 class="todo-title">To-Do List</h1>
-
-      <!-- Info button for Todo List -->
-      <button type="button" class="info-button btn" data-bs-toggle="modal" data-bs-target="#todoInfoModal"">
-        <i class=" fas fa-info-circle"></i>
-        <span class="extra-info"></span>
-      </button>
-      <!-- Info Modal for Todo List -->
-      <div class="modal fade" id="todoInfoModal" tabindex="-1" aria-labelledby="todoInfoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">How to use the <span> Todo List</span></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <ul>
-                <li>
-                  Write the things that you need <span>to do</span> in the input box and
-                  click <span>add</span>.
-                </li>
-                <li>Drag items to reorder.</li>
-                <li>Double click an item to cross it out.</li>
-                <li>Click on "X" to delete an item.</li>
-              </ul>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- Info button for Todo List -->
+        <button type="button" class="info-button btn" data-bs-toggle="modal" data-bs-target="#todoInfoModal"">
+          <i class=" fas fa-info-circle"></i>
+          <span class="extra-info"></span>
+        </button>
+        <!-- Info Modal for Todo List -->
+        <div class="modal fade" id="todoInfoModal" tabindex="-1" aria-labelledby="todoInfoModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">How to use the <span> Todo List</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <li>
+                    Write the things that you need <span>to do</span> in the input box and
+                    click <span>add</span>.
+                  </li>
+                  <li>Drag items to reorder.</li>
+                  <li>Double click an item to cross it out.</li>
+                  <li>Click on "X" to delete an item.</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
+        <!-- Input field for Todo List -->
+        <br><br>
+        <div class="todo-search-container">
+          <form name="toDoList">
+            <input type="text" name="ListItem" id="input" />
+          </form>
+          <!-- Button for Todo List -->
+          <button onclick="newItem()" id="button">Add</button>
+        </div>
+        <br />
+        <ol id="list"></ol>
       </div>
-      <!-- Input field for Todo List -->
-      <br><br>
-      <form name="toDoList">
-        <input type="text" name="ListItem" id="input" />
-      </form>
-      <!-- Button for Todo List -->
-      <button onclick="newItem()" id="button">Add</button>
-      <br />
-      <ol id="list"></ol>
     </div>
 
     <!-- RECIPE CAROUSEL -->
 
     <div class="container">
-
-      <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-interval="false">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/pancake-recipe.png" class="d-block w-100" alt="...">
+      <div class="col-lg-6">
+        <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/pancake-recipe.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/leek-soup.png" class="d-block w-100" alt="...">
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src="img/leek-soup.png" class="d-block w-100" alt="...">
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
-
     </div>
+
+    <!-- WEATHER APP -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
