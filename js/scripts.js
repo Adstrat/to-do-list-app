@@ -65,3 +65,84 @@ const tick = () => {
 };
 
 setInterval(tick, 1000);
+
+
+// -- WEATHER APP --
+
+
+// -- interacting with API
+
+const key = '5RNvlgWT14hUGz0NX0RrGd6QSrJA8fVJ';
+
+// get weather information
+const getWeather = async (id) => {
+
+  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
+  const query = `${id}?apikey=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data[0];
+
+};
+
+// get city information
+const getCity = async (city) => {
+
+  const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+  const query = `?apikey=${key}&q=${city}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data[0];
+
+};
+
+// -- DOM manipulation
+
+const cityForm = document.querySelector('.change-location');
+const details = document.querySelector('.details');
+
+const updateUI = (data) => {
+
+  const city = data.cityDetails;
+  const weather = data.weather;
+
+  // update details template
+  details.innerHTML = `
+    <h5 class="my-3">${city.EnglishName}</h5>
+    <div class="my-3">${weather.WeatherText}</div>
+    <div class="display-4 my-4">
+      <span>${weather.Temperature.Metric.Value}</span>
+      <span>&deg;C</span>
+    </div>
+  `;
+
+};
+
+const updateCity = async (city) => {
+
+  const cityDetails = await getCity(city);
+  const weather = await getWeather(cityDetails.Key);
+
+  return {
+    cityDetails,
+    weather
+  }
+}
+
+cityForm.addEventListener('submit', e => {
+  //prevent default action
+  e.preventDefault();
+
+  //get city input value
+  const city = cityForm.city.value.trim();
+  cityForm.reset();
+
+  //update UI with new city
+  updateCity(city)
+    .then(data => updateUI(data))
+    .catch(err => console.log(err));
+})
