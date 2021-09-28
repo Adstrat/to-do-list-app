@@ -21,6 +21,7 @@ span {
 /* -- Todo -- */
 
 .todo-container {
+  text-align: center;
   margin: 20px auto;
   padding: 20px;
   background: #fff;
@@ -29,13 +30,19 @@ span {
 }
 
 .todo-title {
-  float: left;
+  display: inline-block;
 }
 
 .info-button {
-  display: inline-block;
   border: none;
   background-color: transparent;
+  position: relative;
+  bottom: 15px;
+}
+
+.modal-body,
+#list {
+  text-align: left;
 }
 
 .btn:focus,
