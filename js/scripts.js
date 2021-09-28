@@ -165,10 +165,10 @@ const updateTomorrowUI = (data) => {
   // update details template
   details.innerHTML = `
     <h5 class="my-3">${city.EnglishName}</h5>
-    <div class="my-3"> Daytime:
+    <div class="my-3"><span>Daytime: </span>
   ${weather.DailyForecasts[1].Day.IconPhrase}
     </div >
-    <div class="my-3"> Nighttime:
+    <div class="my-3"><span>Night-time: </span>
     ${weather.DailyForecasts[1].Night.IconPhrase}
       </div >
   `;
