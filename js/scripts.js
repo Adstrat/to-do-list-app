@@ -74,19 +74,6 @@ setInterval(tick, 1000);
 
 const key = '5RNvlgWT14hUGz0NX0RrGd6QSrJA8fVJ';
 
-// get weather information
-const getWeather = async (id) => {
-
-  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
-  const query = `${id}?apikey=${key}`;
-
-  const response = await fetch(base + query);
-  const data = await response.json();
-
-  return data[0];
-
-};
-
 // get city information
 const getCity = async (city) => {
 
@@ -97,7 +84,18 @@ const getCity = async (city) => {
   const data = await response.json();
 
   return data[0];
+};
 
+// get weather information
+const getWeather = async (id) => {
+
+  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
+  const query = `${id}?apikey=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data[0];
 };
 
 // -- DOM manipulation
@@ -113,13 +111,12 @@ const updateUI = (data) => {
   // update details template
   details.innerHTML = `
     <h5 class="my-3">${city.EnglishName}</h5>
-    <div class="my-3">${weather.WeatherText}</div>
-    <div class="display-4 my-4">
+    <div class="my-2">${weather.WeatherText}</div>
+    <div class="display-6 my-4">
       <span>${weather.Temperature.Metric.Value}</span>
       <span>&deg;C</span>
     </div>
   `;
-
 };
 
 const updateCity = async (city) => {
@@ -130,8 +127,8 @@ const updateCity = async (city) => {
   return {
     cityDetails,
     weather
-  }
-}
+  };
+};
 
 cityForm.addEventListener('submit', e => {
   //prevent default action
@@ -145,4 +142,63 @@ cityForm.addEventListener('submit', e => {
   updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
+});
+
+
+// get tomorrow weather info
+const getTomorrowWeather = async (id) => {
+
+  const base = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
+  const query = `${id}?apikey=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
+const updateTomorrowUI = (data) => {
+
+  const city = data.cityDetails;
+  const weather = data.tomorrowWeather;
+
+  // update details template
+  details.innerHTML = `
+    <h5 class="my-3">${city.EnglishName}</h5>
+    <div class="my-3"> Daytime:
+  ${weather.DailyForecasts[1].Day.IconPhrase}
+    </div >
+    <div class="my-3"> Nighttime:
+    ${weather.DailyForecasts[1].Night.IconPhrase}
+      </div >
+  `;
+};
+
+const updateTomorrowCity = async (city) => {
+
+  const cityDetails = await getCity(city);
+  const tomorrowWeather = await getTomorrowWeather(cityDetails.Key);
+
+  return {
+    cityDetails,
+    tomorrowWeather
+  };
+};
+
+// tomorrow button
+const tomorrowButton = document.querySelector('.tomorrow-button');
+
+tomorrowButton.addEventListener('click', e => {
+  //prevent default action
+  e.preventDefault();
+
+  //get city input value
+  const city = cityForm.city.value.trim();
+  cityForm.reset();
+
+  //update UI with new city
+  updateTomorrowCity(city)
+    .then(data => updateTomorrowUI(data))
+    .catch(err => console.log(err));
 })
+
