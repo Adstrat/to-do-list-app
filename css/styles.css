@@ -124,4 +124,10 @@ li > crossOutButton {
   background: #fff;
   border-radius: 8px;
   border: 1px solid #217cae;
+  height: 320px;
+}
+
+.weather-buttons {
+  padding-top: 10px;
+  text-align: center;
 }
