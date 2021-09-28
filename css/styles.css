@@ -122,7 +122,6 @@ li > crossOutButton {
 .carousel-inner {
   border-radius: 8px;
   border: 1px solid #217cae;
-  margin-bottom: 20px;
 }
 
 /* -- Weather -- */
@@ -133,6 +132,7 @@ li > crossOutButton {
   border-radius: 8px;
   border: 1px solid #217cae;
   height: 320px;
+  margin-bottom: 20px;
 }
 
 .weather-buttons {
