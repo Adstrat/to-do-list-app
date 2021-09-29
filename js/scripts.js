@@ -77,7 +77,7 @@ const key = '5RNvlgWT14hUGz0NX0RrGd6QSrJA8fVJ';
 // get city information
 const getCity = async (city) => {
 
-  const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+  const base = 'https://dataservice.accuweather.com/locations/v1/cities/search';
   const query = `?apikey=${key}&q=${city}`;
 
   const response = await fetch(base + query);
@@ -89,7 +89,7 @@ const getCity = async (city) => {
 // get weather information
 const getWeather = async (id) => {
 
-  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
+  const base = 'https://dataservice.accuweather.com/currentconditions/v1/';
   const query = `${id}?apikey=${key}`;
 
   const response = await fetch(base + query);
@@ -148,12 +148,11 @@ cityForm.addEventListener('submit', e => {
 // get tomorrow weather info
 const getTomorrowWeather = async (id) => {
 
-  const base = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
+  const base = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/';
   const query = `${id}?apikey=${key}`;
 
   const response = await fetch(base + query);
   const data = await response.json();
-  console.log(data);
   return data;
 };
 
