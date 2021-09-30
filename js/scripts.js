@@ -5,13 +5,19 @@ function newItem() {
   // ADDING A NEW ITEM TO THE LIST OF ITEMS
   let li = $('<li></li>');
   let inputValue = $('#input').val();
-  let form = $('.todo-form')[0];
+
   li.append(inputValue);
 
   if (inputValue === '') {
     alert('You must write something!');
   } else {
     $('#list').append(li);
+    // store items in local storage
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos.push(inputValue);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    // clear input
+    let form = $('.todo-form')[0];
     form.reset();
   }
 
@@ -25,17 +31,45 @@ function newItem() {
   });
 
   // ADDING THE DELETE BUTTON "X":
-  let crossOutButton = $('<crossOutButton></crossOutButton>‚');
+  let crossOutButton = $('<crossOutButton></crossOutButton>');
   crossOutButton.append(document.createTextNode('X'));
   li.append(crossOutButton);
 
+  // deletes list item
   crossOutButton.on('click', deleteListItem);
   function deleteListItem() {
     li.addClass('delete');
+    // deletes list item from local storage
+    let todos = JSON.parse(localStorage.getItem('todos'));
+    todos.splice(todos.indexOf(deleteListItem), 1)
+    localStorage.setItem('todos', JSON.stringify(todos));
   }
   // REORDERING THE ITEMS:
   $('#list').sortable()
 }
+
+
+// get items from local storage and put in list
+if (localStorage.getItem('todos')) {
+  let storedTodos = JSON.parse(localStorage.getItem('todos'));
+
+  storedTodos.forEach((todo) => {
+    let li = $('<li></li>');
+    li.append(todo);
+    $('#list').append(li);
+    let crossOutButton = $('<crossOutButton></crossOutButton>‚');
+    crossOutButton.append(document.createTextNode('X'));
+    li.append(crossOutButton);
+    crossOutButton.on('click', deleteListItem);
+    function deleteListItem() {
+      li.addClass('delete');
+      let todos = JSON.parse(localStorage.getItem('todos'));
+      todos.splice(todos.indexOf(deleteListItem), 1)
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  });
+  $('#list').sortable()
+};
 
 
 // -- DATE AND TIME --
