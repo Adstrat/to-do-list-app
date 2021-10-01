@@ -55,6 +55,12 @@ span {
   width: 300px;
 }
 
+@media all and (max-width: 360px) {
+  #input {
+    width: 240px;
+  }
+}
+
 .todo-form {
   display: inline-block;
 } 
@@ -122,6 +128,7 @@ li > crossOutButton {
 .carousel-inner {
   border-radius: 8px;
   border: 1px solid #217cae;
+  margin-bottom: 20px;
 }
 
 /* -- Weather -- */
@@ -130,7 +137,7 @@ li > crossOutButton {
   padding: 20px;
   background: #fff;
   border-radius: 8px;
-  border: 1px solid #217cae;
+  border: 1px solid #4262ba;
   height: 320px;
   margin-bottom: 20px;
 }
@@ -138,4 +145,24 @@ li > crossOutButton {
 .weather-buttons {
   padding-top: 10px;
   text-align: center;
+}
+
+/* --Footer-- */
+
+.footer {
+  background-color: #4262ba;
+  color: #fff;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.footer > p > a {
+  color: #b1beeb;
+  text-decoration: none;
+}
+
+.footer > p > a:hover,
+.footer > p > a:focus {
+  color: rgb(248, 248, 135);
+  text-decoration: none;
 }
