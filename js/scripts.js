@@ -170,7 +170,6 @@ cityForm.addEventListener('submit', e => {
 
   //get city input value
   const city = cityForm.city.value.trim();
-  cityForm.reset();
 
   //update UI with new city
   updateCity(city)
@@ -227,7 +226,6 @@ tomorrowButton.addEventListener('click', e => {
 
   //get city input value
   const city = cityForm.city.value.trim();
-  cityForm.reset();
 
   //update UI with new city
   updateTomorrowCity(city)
