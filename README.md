@@ -2,12 +2,12 @@
 
 This app displays:
 
+### A Real Time Clock
++ using the new Date() constructor
+
 ### A Todo-List
 + users can add, cross out, change the order and delete items.
 + items are stored in local storage for future use.
-
-### A Real Time Clock
-+ using the new Date() constructor
 
 ### The Weather 
 + using an [external API](https://developer.accuweather.com/) to display weather for chosen city.
@@ -17,6 +17,7 @@ This app displays:
 
 ---
 
+![Demo](assets/multi-app.gif)
 
 Click the link to see it in action:
 
