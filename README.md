@@ -15,8 +15,6 @@ This app displays:
 ### A Bootstrap Carousel
 + displaying recipies
 
----
-
 ![Demo](assets/multi-app.gif)
 
 Click the link to see it in action:
